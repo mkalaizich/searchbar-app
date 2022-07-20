@@ -18,7 +18,7 @@ function App() {
       options: [...new Set(books.map((book) => book.author))].sort(),
     },
     {
-      name: 'genre',
+      name: 'genres',
       options: [
         ...new Set(books.map((book) => book.genres.split(', ')).flat()),
       ].sort(),
@@ -31,11 +31,12 @@ function App() {
     setDisplayBooks(
       books.filter((book) => {
         if (searchCriteria) {
+          console.log(searchCriteria, searchValue, book[searchCriteria])
           return sanitizeString(book[searchCriteria]).includes(
             sanitizeString(searchValue)
           );
         }
-        sanitizeString(book.description).includes(sanitizeString(searchValue))
+
         return (
           sanitizeString(book.title).includes(sanitizeString(searchValue)) ||
           sanitizeString(book.author).includes(sanitizeString(searchValue)) ||
