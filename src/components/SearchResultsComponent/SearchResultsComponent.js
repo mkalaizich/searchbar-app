@@ -8,7 +8,7 @@ function SearchResultsComponent({ data }) {
       {!!data.length &&
         data.map((item, i) => (
           <div className='result-card'>
-            <img src={item.image} className='result-image' alt='No image found.'/>
+            <img src={item.image} className='result-image' alt='No cover found.'/>
             <div className='data-container'>
               <p className='title'>
                 {item.title} ({item.published})
